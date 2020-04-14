@@ -7,28 +7,25 @@
 
 #include <string>
 
-using namespace std;
-
-
 class Account {
 public:
     const static double minResidue;
     Account();
-    Account(const string &number, double residue);
-    void setNumber(const string &number);
-    const string &getNumber() const;
+    Account(const std::string &number, double residue);
+    void setNumber(const std::string &number);
+    const std::string &getNumber() const;
     double getResidue() const;
     int getConsignments() const;
     int getWithdrawals() const;
     void consign(double);
     bool withDraw(double);
     bool transfer(Account*, double);
-    static string parseNum(double);
-    string toString();
+    static std::string parseNum(double);
+    std::string toString();
     virtual ~Account();
 
 private:
-    string number;
+    std::string number;
     double residue;
     int consignments;
     int withdrawals;

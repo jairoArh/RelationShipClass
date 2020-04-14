@@ -14,14 +14,14 @@ Account::Account() {
     this->withdrawals = 0;
 }
 
-Account::Account(const string &number, double residue) : number(number), residue(residue) {
+Account::Account(const std::string &number, double residue) : number(number), residue(residue) {
     setNumber( number );
     setResidue( residue);
     this->consignments = 0;
     this->withdrawals = 0;
 }
 
-void Account::setNumber(const string &number) {
+void Account::setNumber(const std::string &number) {
     Account::number = number;
 }
 
@@ -29,14 +29,14 @@ void Account::setResidue(double residue) {
     Account::residue = residue;
 }
 
-string Account::parseNum(double value) {
+std::string Account::parseNum(double value) {
     std::ostringstream aux;
     aux << value;
 
     return aux.str();
 }
 
-const string &Account::getNumber() const {
+const std::string &Account::getNumber() const {
     return number;
 }
 
@@ -82,7 +82,7 @@ bool Account::transfer(Account* account, double value) {
     return false;
 }
 
-string Account::toString() {
+std::string Account::toString() {
     return "Account[number=" + number +", residue=" + parseNum( residue ) + ", consignments=" +
            parseNum( consignments) + ", withdrawals=" + parseNum( withdrawals) +"]";
 }

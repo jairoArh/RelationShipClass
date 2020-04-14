@@ -2,6 +2,8 @@
 #include "Account.h"
 #include "Customer.h"
 
+using namespace std;
+
 int main() {
 
     Customer* lola = new Customer("43545554","Dolores","Barriga",EGender::FEMALE,"3104862198");

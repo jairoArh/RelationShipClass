@@ -13,46 +13,46 @@ class Customer {
 public:
     Customer();
 
-    Customer(const string &idCustomer, const string &firstName, const string &lastName, EGender gender,
-             const string &phone);
+    Customer(const std::string &idCustomer, const std::string &firstName, const std::string &lastName, EGender gender,
+             const std::string &phone);
 
-    const string &getIdCustomer() const;
+    const std::string &getIdCustomer() const;
 
-    void setIdCustomer(const string &idCustomer);
+    void setIdCustomer(const std::string &idCustomer);
 
-    const string &getFirstName() const;
+    const std::string &getFirstName() const;
 
-    void setFirstName(const string &firstName);
+    void setFirstName(const std::string &firstName);
 
-    const string &getLastName() const;
+    const std::string &getLastName() const;
 
-    void setLastName(const string &lastName);
+    void setLastName(const std::string &lastName);
 
     EGender getGender() const;
 
     void setGender(EGender gender);
 
-    const string &getPhone() const;
+    const std::string &getPhone() const;
 
-    void setPhone(const string &phone);
+    void setPhone(const std::string &phone);
 
-    Account* findAccount( string );
+    Account* findAccount( std::string );
 
-    bool addAccount( string, double );
+    bool addAccount( std::string, double );
 
-    vector<Account*> getAccounts();
+    std::vector<Account*> getAccounts();
 
-    string toString();
+    std::string toString();
 
     virtual ~Customer();
 
 private:
-    string idCustomer;
-    string firstName;
-    string lastName;
+    std::string idCustomer;
+    std::string firstName;
+    std::string lastName;
     EGender gender;
-    string phone;
-    vector<Account*> accounts;
+    std::string phone;
+    std::vector<Account*> accounts;
 };
 
 
