@@ -9,13 +9,15 @@ const double Account::minResidue = 50000;
 
 Account::Account() {
     this->number = std::string();
+    this->customer = NULL;
     this->residue = 0;
     this->consignments = 0;
     this->withdrawals = 0;
 }
 
-Account::Account(const std::string &number, double residue) : number(number), residue(residue) {
+Account::Account(Customer* customer, const std::string &number, double residue) : number(number), residue(residue) {
     setNumber( number );
+    setCustomer( customer );
     setResidue( residue);
     this->consignments = 0;
     this->withdrawals = 0;
@@ -23,6 +25,10 @@ Account::Account(const std::string &number, double residue) : number(number), re
 
 void Account::setNumber(const std::string &number) {
     Account::number = number;
+}
+
+void Account::setCustomer(Customer *customer) {
+    Account::customer = customer;
 }
 
 void Account::setResidue(double residue) {
@@ -57,12 +63,8 @@ void Account::consign(double value) {
     consignments++;
 }
 
-Account::~Account() {
-
-}
-
 bool Account::withDraw(double value) {
-    if ( value < getResidue() - Account::minResidue ){
+    if ( value <= getResidue() - Account::minResidue ){
         setResidue( getResidue() - value );
         withdrawals++;
 
@@ -84,7 +86,14 @@ bool Account::transfer(Account* account, double value) {
 
 std::string Account::toString() {
     return "Account[number=" + number +", residue=" + parseNum( residue ) + ", consignments=" +
-           parseNum( consignments) + ", withdrawals=" + parseNum( withdrawals) +"]";
+           parseNum( consignments) + ", withdrawals=" + parseNum( withdrawals) +"]\n";
 }
 
+Customer* Account::getCustomer() {
+    return customer;
+}
+
+Account::~Account() {
+
+}
 

@@ -48,24 +48,8 @@ void Customer::setPhone(const std::string &phone) {
     Customer::phone = phone;
 }
 
-Account *Customer::findAccount(std::string number) {
-    for( Account* account : accounts ){
-        if( account->getNumber().compare( number ) == 0 ){
-            return account;
-        }
-    }
-
-    return NULL;
-}
-
-bool Customer::addAccount(std::string number, double value) {
-    if ( !findAccount( number) ){
-        accounts.push_back( new Account(number,value));
-
-        return true;
-    }
-
-    return false;
+void Customer::addAccount(Account* account) {
+   accounts.push_back( account );
 }
 
 std::vector<Account *> Customer::getAccounts() {

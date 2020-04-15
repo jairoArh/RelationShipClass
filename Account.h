@@ -6,17 +6,22 @@
 #define PRJBANK_ACCOUNT_H
 
 #include <string>
+#include "Customer.h"
+
+class Customer;
 
 class Account {
 public:
     const static double minResidue;
     Account();
-    Account(const std::string &number, double residue);
+    Account(Customer*, const std::string &number, double residue);
+    void setCustomer( Customer* );
     void setNumber(const std::string &number);
     const std::string &getNumber() const;
     double getResidue() const;
     int getConsignments() const;
     int getWithdrawals() const;
+    Customer* getCustomer();
     void consign(double);
     bool withDraw(double);
     bool transfer(Account*, double);
@@ -29,6 +34,7 @@ private:
     double residue;
     int consignments;
     int withdrawals;
+    Customer* customer;
 
     void setResidue( double );
 };

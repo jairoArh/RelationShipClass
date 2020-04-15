@@ -9,6 +9,8 @@
 #include "Account.h"
 #include "EGender.h"
 
+class Account;
+
 class Customer {
 public:
     Customer();
@@ -38,7 +40,7 @@ public:
 
     Account* findAccount( std::string );
 
-    bool addAccount( std::string, double );
+    void addAccount( Account*  );
 
     std::vector<Account*> getAccounts();
 
