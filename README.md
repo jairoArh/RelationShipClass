@@ -13,3 +13,4 @@ Herramientas:
 
 - Editor CLion 2019.3
 - Lenguaje C++14
+- Sistema MacOS Ventura
